@@ -114,8 +114,13 @@ export const CallCenter = () => {
         <form
           onSubmit={async (e) => {
             e.preventDefault();
-            // await sessionManager?.call(`sip:${callTo}@192.168.100.26`, {});
-            await sessionManager?.call(`sip:${callTo}@192.168.8.168`, {});
+            // await sessionManager?.call(`sip:${callTo}@192.168.100.8`, {});
+            // await sessionManager?.call(`sip:${callTo}@192.168.8.168`, {});
+            await sessionManager?.call(`sip:${callTo}@10.134.1.166`, {
+              sessionDescriptionHandlerOptions: {
+                constraints: { audio: true, video: false },
+              },
+            });
           }}
         >
           <div className='flex flex-col gap-5'>
